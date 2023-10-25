@@ -250,6 +250,10 @@
             margin-left: 0rem;
         }
 
+        .accordion {
+            display: none;
+        }
+
         /* ----------------------FOOTER---------------------------------- */
 
         footer {
@@ -305,6 +309,21 @@
                 margin-bottom: auto;
                 padding: 0rem;
             }
+
+            .mountain-selector-parent {
+                display: none;
+            }
+
+            .accordion {
+            display: block;
+
+            
+
+            
+        }
+
+
+
         }
 
     </style>   
@@ -416,8 +435,151 @@
                 >    
                     Mountain 2
                 </button>
+            </div>
+        </div>
 
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button 
+                    onclick="toggleImage('buttonOneM', 'mountain-one-selectorM')" 
+                    class="accordion-button collapsed" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#flush-collapseOne" 
+                    aria-expanded="false" 
+                    aria-controls="flush-collapseOne"
+                >
+                    Mountain 1
+                </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div id="mountain-one-selector" class="active">
+                            <article>
+                                <div class="schedule-parent-container">
+                                    <h3 class="schedule-title">Schedule</h3>
                 
+                                    <div class="schedule-flex-container">
+                                        <ul class="schedule-date">
+                                            <li>
+                                                25 Nov 2016
+                                            </li>
+                                            <li>
+                                                25 Nov 2016
+                                            </li>
+                
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                25 Nov 2016
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                25 Nov 2016
+                                            </li>
+                                        </ul>
+                
+                                        <ul class="schedule-text">
+                                            <li>
+                                                Lorem ipsum dolor sit amet
+                                            </li>
+                                            <li>
+                                                Lorem ipsum dolor sit amet
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                Lorem ipsum dolor sit amet
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                Lorem ipsum dolor sit amet
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button 
+                    onclick="toggleImage('buttonTwoM', 'mountain-two-selectorM')" 
+                    class="accordion-button collapsed" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#flush-collapseTwo" 
+                    aria-expanded="false" 
+                    aria-controls="flush-collapseTwo"
+                >
+                    Mountain 2
+                </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+
+                        <div id="mountain-two-selector">
+                            <article>
+                                <div class="schedule-parent-container">
+                                    <h3 class="schedule-title">Schedule</h3>
+                
+                                    <div class="schedule-flex-container">
+                                        <ul class="schedule-date">
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                25 Nov 2016
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                25 Nov 2016
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                        </ul>
+                
+                                        <ul class="schedule-text">
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                Lorem ipsum dolor sit amet
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                            <li>
+                                                Lorem ipsum dolor sit amet
+                                            </li>
+                                            <li>
+                                                <br>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>    
+                            </article>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -543,7 +705,10 @@
     </footer>
 
 
+    <!---------------------------------- JS LOGIC ---------------------------------------->
+
     <script>
+        
         //selects default button by id
         let activeButton = 'buttonOne';
         //selects default image by id
