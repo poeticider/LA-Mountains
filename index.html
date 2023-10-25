@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LosAngelesMountains</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;500&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+
+
+        /* ---------------global variables------------------ */
+
+        :root {
+            --darkGrey: #322828;
+            --subtleGrey: #545353;
+            --lightGrey: #8C8787;
+            --white: #ffffff;
+            --blue: #2C3761;
+        }
+
+
+
+
+
+        /* -----------------universal CSS----------- */
+
+        body {
+            font-family:"Heebo";
+        }
+
+        h1, h2, h3, h4, a {
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--darkGrey);
+        }
+
+        a {
+            font-style: italic;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        p, li {
+            font-weight: 200;
+        }
+
+        .bar-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 5rem;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .bar-section div a {
+            text-decoration: underline;
+            color: var(--darkGrey);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+            border: slategray solid 1.5px;
+        }
+
+        .logo-text-container h3 {
+            font-size: 1.5rem;
+            margin: 0rem 0rem 0rem 0.5rem;
+        }
+
+
+        /* -------------------HEADER----------------------- */
+
+        .hero-container {
+            background-image: url("https://images.unsplash.com/photo-1589405858862-2ac9cbb41321?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            height: 50rem;
+            width: 100%;
+        }
+
+        .hero-child-header div a {
+            color: var(--white);
+        }
+
+        .hero-child-header :hover {
+            color: var(--subtleGrey);
+        }
+
+        .hero-title {
+            padding-top: 9rem;
+        }
+
+        .hero-title h1 {
+            text-align: center;
+            font-size: 5rem;
+            margin: -2rem;
+        }
+
+        .title-blue {
+            color: var(--blue);
+        }
+
+
+        /* -------------BELOW-HERO-NAV--------------- */
+
+        .below-hero-nav-container :hover {
+            color:var(--subtleGrey);
+        }
+
+        .h3Blue {
+            color:var(--blue);
+        }
+        
+
+
+        /* -------------MAIN (HISTORY)-------------------- */
+
+        .history {
+            background-image: url("https://images.unsplash.com/photo-1477948879622-5f16e220fa42?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8fA%3D%3D");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 40rem;
+            width: 100%;
+        }
+
+        .history-text-container {
+            width: 50%;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        .carousel-inner {
+            margin: auto;
+            width: 50%;
+        }
+
+        .carousel-item {
+            object-fit: cover;
+            object-position: center;
+            height: 30vh;
+        }
+
+
+        /* -------------------SECTION (CLIMB)-------------------- */
+
+        .climb-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1% 15% 1% 15%;
+        }
+
+        .climb-banner h1 {
+            margin-bottom: 0rem;
+            padding: 1% 5% 1% 5%;
+        }
+
+        .mountain-selector-parent {
+            background-color: var(--darkGrey);
+        }
+
+        .mountain-selector-child {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-left: 20%;
+        }
+
+        .schedule-title {
+            margin-left: 17rem;
+        }
+
+        .schedule-flex-container {
+            display: flex;
+            align-items: center;
+            margin-left: 15rem;
+        }
+
+        .mountain-selector {
+            text-decoration: none;
+            color: var(--lightGrey);
+            background-color: var(--darkGrey);
+        }
+
+/* needs to be on click change */
+        .button.active {
+            text-decoration: underline;
+            color: var(--darkGrey);
+            background-color: var(--lightGrey);
+        }
+
+        /* ---- */
+
+        button {
+            all: unset;
+            height: 100%;
+            padding: 0.4rem;
+            margin: 0rem;
+        }
+
+        #mountain-one-selector, #mountain-two-selector {
+            display: none;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 40rem;
+            width: 100%;
+        }
+
+        #mountain-one-selector.active, #mountain-two-selector.active {
+            display: block;
+        }
+
+        #mountain-one-selector {
+            background-image: url(https://cdn.britannica.com/73/189273-131-DA3E2F9A/Denali-peak-center-Alaska-Range-North-America.jpg);
+        }
+
+        #mountain-two-selector {
+            background-image: url(https://cdn.britannica.com/67/19367-050-885866B4/Valley-Taurus-Mountains-Turkey.jpg);
+        }
+
+        footer {
+            background-color: var(--subtleGrey);
+            
+        }
+
+        footer > h4 {
+            color: var(--lightGrey);
+            margin-bottom: 0rem;
+            font-size: 0.8rem;
+        }
+
+        .footer-logo > .logo-text-container > h3 {
+            color: var(--lightGrey);
+        }
+
+
+        
+
+    </style>   
+
+
+
+</head>
+
+<body>
+    <!-- must be one single file so styles must be contained here + images must be links rather than local -->
+
+    <header class="hero-container">
+        <nav class="bar-section hero-child-header">
+            <div class="header-logo">
+                <img class="logo" src="https://static.vecteezy.com/system/resources/thumbnails/000/623/284/small/mountain1-01.jpg" alt="LAMountains Logo"></div>
+            <div>
+                <a href="#history">01. History</a>
+                <a href="#team">02. Team</a>
+            </div>
+        </nav>
+
+        <!-- With the correct images I would use z-index to sandwich the text between the mountains and a separate sky image-->
+        <div class="hero-title">
+            <h1 class="title-black">LosAngeles</h1>
+            <h1 class="title-blue">Mountains</h1>
+        </div>
+    </header>
+
+    <nav class="bar-section below-hero-nav">
+        <div class="logo-container">
+            <img class="logo" src="https://static.vecteezy.com/system/resources/thumbnails/000/623/284/small/mountain1-01.jpg" alt="LAMountains Logo"> 
+            <div class="logo-text-container">
+                <h3>Los Angeles</h3>
+                <h3 class="h3Blue">Mountains</h3>
+            </div>  
+        </div>
+        <div class="below-hero-nav-container">
+            <a href="#history">01. History</a>
+            <a href="#team">02. Team</a>
+        </div>
+    </nav>
+
+    <main class="history">
+        <div class="history-text-container">
+            <h1 id="history"><div>01.</div>History</h1>
+            <p class="history-p">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Vestibulum lorem sed risus ultricies tristique nulla. Porttitor rhoncus dolor purus non enim. 
+                Pharetra et ultrices neque ornare aenean euismod elementum nisi. Et pharetra pharetra massa massa ultricies mi. 
+                Sed libero enim sed faucibus turpis.
+            </p>
+        </div>
+
+        
+        
+        <div id="carousel" class="carousel-container carousel slide">
+
+            <div class="carousel-inner">
+                <div class="carousel-size carousel-item active">
+                    <img src="https://cdn1.matadornetwork.com/blogs/1/2020/06/Tourist-on-the-peak-of-high-rocks-1200x836.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-size carousel-item">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/ama-dablam-mountain-peak-view-from-chola-pass-royalty-free-image-1623254695.jpg" class="d-block w-100" alt="Scenic Mountainscape">
+                </div>
+                <div class="carousel-size carousel-item">
+                    <img src="https://cdn1.matadornetwork.com/blogs/1/2020/06/Tourist-on-the-peak-of-high-rocks-1200x836.jpg" class="d-block w-100" alt="Hiker on Mountain-top">
+                </div>
+                <div class="carousel-size carousel-item">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/ama-dablam-mountain-peak-view-from-chola-pass-royalty-free-image-1623254695.jpg" class="d-block w-100" alt="Scenic Mountainscape">
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        
+
+    </main>
+
+    <section>
+        <div class="climb-banner">
+            <h1 id="team"><div>02.</div>Climb</h1>
+            <p class="history-p">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. 
+            </p>
+        </div>
+        <!-- buttons must change website tab. make x hidden + y show -->
+        <div class="mountain-selector-parent">
+            <div class="mountain-selector-child">
+                <button 
+                    onclick="toggleImage('mountain-one-selector')" 
+                    class="button mountain-selector mountain-one-selector active" 
+                    id="buttonOne"
+                >
+                    Mountain 1
+                </button>
+
+                <button 
+                    onclick="toggleImage('mountain-two-selector')" 
+                    class="mountain-selector mountain-two-selector" 
+                    id="buttonTwo"
+                >    
+                    Mountain 2
+                </button>
+
+                
+            </div>
+        </div>
+
+        <div id="mountain-one-selector" class="active">
+            <article>
+                <h3 class="schedule-title">Schedule</h3>
+
+                <div class="schedule-flex-container">
+                    <ul class="schedule-date">
+                        <li>
+                            25 Nov 2016
+                        </li>
+                        <li>
+                            25 Nov 2016
+                        </li>
+
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            25 Nov 2016
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            25 Nov 2016
+                        </li>
+                    </ul>
+
+                    <ul class="schedule-text">
+                        <li>
+                            Lorem ipsum dolor sit amet
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet
+                        </li>
+                    </ul>
+                </div>
+                
+            </article>
+
+        </div>
+
+        <div id="mountain-two-selector">
+            <article>
+                <h3 class="schedule-title">Schedule</h3>
+
+                <div class="schedule-flex-container">
+                    <ul class="schedule-date">
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            25 Nov 2016
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            25 Nov 2016
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                    </ul>
+
+                    <ul class="schedule-text">
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet
+                        </li>
+                        <li>
+                            <br>
+                        </li>
+                    </ul>
+                </div>
+                
+            </article>
+
+        </div>
+
+
+    </section>
+
+    <footer class="bar-section">
+        <div class="footer-logo logo-container">
+            <img class="logo" src="https://static.vecteezy.com/system/resources/thumbnails/000/623/284/small/mountain1-01.jpg" alt="LAMountains Logo">
+            <div class="logo-text-container">
+                <h3>Los Angeles</h3>
+                <h3>Mountains</h3>
+            </div>  
+        </div>
+        <h4>Copyright 2016. All Rights Reserved.</h4>
+    </footer>
+
+
+    <script>
+        
+        let activeImage = 'mountain-one-selector';
+
+        const toggleImage = (imageId) => {
+
+            if (imageId === activeImage) {
+                return;
+
+            }
+
+            document.getElementById(activeImage).classList.remove('active');
+            document.getElementById(activeImage).classList.remove('button');
+
+            document.getElementById(imageId).classList.add('active');
+            document.getElementById(imageId).classList.add('button');
+            activeImage = imageId;
+
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>
