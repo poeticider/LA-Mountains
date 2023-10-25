@@ -186,6 +186,10 @@
             margin-left: 17rem;
         }
 
+        article {
+            padding-top: 10rem;
+        }
+
         .schedule-flex-container {
             display: flex;
             align-items: center;
@@ -198,14 +202,11 @@
             background-color: var(--darkGrey);
         }
 
-/* needs to be on click change */
-        .button.active {
+        .active {
             text-decoration: underline;
             color: var(--darkGrey);
             background-color: var(--lightGrey);
         }
-
-        /* ---- */
 
         button {
             all: unset;
@@ -347,7 +348,7 @@
         <div class="mountain-selector-parent">
             <div class="mountain-selector-child">
                 <button 
-                    onclick="toggleImage('mountain-one-selector')" 
+                    onclick="toggleImage('buttonOne', 'mountain-one-selector')" 
                     class="button mountain-selector mountain-one-selector active" 
                     id="buttonOne"
                 >
@@ -355,7 +356,7 @@
                 </button>
 
                 <button 
-                    onclick="toggleImage('mountain-two-selector')" 
+                    onclick="toggleImage('buttonTwo', 'mountain-two-selector')" 
                     class="mountain-selector mountain-two-selector" 
                     id="buttonTwo"
                 >    
@@ -487,21 +488,34 @@
 
 
     <script>
-        
+        //selects default button by id
+        let activeButton = 'buttonOne';
+        //selects default image by id
         let activeImage = 'mountain-one-selector';
 
-        const toggleImage = (imageId) => {
+        const toggleImage = (buttonId, imageId) => {
 
-            if (imageId === activeImage) {
+            if (buttonId === activeButton && imageId === activeImage) {
                 return;
 
             }
 
+            //dom manip on buttons
+            document.getElementById(activeButton).classList.remove('active');
+            document.getElementById(activeButton).classList.remove('button');
+
+            document.getElementById(buttonId).classList.add('active');
+            document.getElementById(buttonId).classList.add('button');
+            //reassigning button variable
+            activeButton = buttonId;
+
+            //dom manip on images
             document.getElementById(activeImage).classList.remove('active');
             document.getElementById(activeImage).classList.remove('button');
 
             document.getElementById(imageId).classList.add('active');
             document.getElementById(imageId).classList.add('button');
+            //reassigning image variable
             activeImage = imageId;
 
         }
