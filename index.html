@@ -182,28 +182,19 @@
             margin-left: 20%;
         }
 
-        .schedule-title {
-            margin-left: 17rem;
-        }
-
-        article {
-            padding-top: 10rem;
-        }
-
-        .schedule-flex-container {
-            display: flex;
-            align-items: center;
-            margin-left: 15rem;
+        .mountain-selector-child .active {
+            text-decoration: underline;
         }
 
         .mountain-selector {
             text-decoration: none;
             color: var(--lightGrey);
             background-color: var(--darkGrey);
+            text-transform: uppercase;
+            height: 100%;
         }
 
         .active {
-            text-decoration: underline;
             color: var(--darkGrey);
             background-color: var(--lightGrey);
         }
@@ -235,6 +226,32 @@
             background-image: url(https://cdn.britannica.com/67/19367-050-885866B4/Valley-Taurus-Mountains-Turkey.jpg);
         }
 
+        article {
+            padding-top: 10rem;
+            display: flex;
+            padding-left: 10rem;
+        }
+
+        .schedule-parent-container {
+            background-color: var(--white);
+            opacity: 0.7;
+            padding: 1rem 2.5rem 1rem 1rem;
+        }
+
+        .schedule-title {
+            margin-left: 2rem;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .schedule-flex-container {
+            display: flex;
+            align-items: center;
+            margin-left: 0rem;
+        }
+
+        /* ----------------------FOOTER---------------------------------- */
+
         footer {
             background-color: var(--subtleGrey);
             
@@ -251,7 +268,44 @@
         }
 
 
-        
+        /* ----------------RESPONSIVE DESIGN------------ */
+
+        @media only screen and (max-width: 725px) {
+            .bar-section {
+                justify-content: center;
+            }
+
+            .hero-title h1 {
+                font-size: 3.6rem;
+                margin: -1rem;
+            }
+
+            .logo-text-container {
+                display: none;
+            }
+            
+            .history-text-container {
+                width: auto;
+            }
+
+            .carousel-item {
+                height: auto;
+            }
+
+            .carousel-inner {
+                width: 100%;
+            }
+
+            .climb-banner {
+                display: block;
+                padding: 2rem;
+            }
+
+            .climb-banner h1 {
+                margin-bottom: auto;
+                padding: 0rem;
+            }
+        }
 
     </style>   
 
@@ -369,105 +423,107 @@
 
         <div id="mountain-one-selector" class="active">
             <article>
-                <h3 class="schedule-title">Schedule</h3>
+                <div class="schedule-parent-container">
+                    <h3 class="schedule-title">Schedule</h3>
 
-                <div class="schedule-flex-container">
-                    <ul class="schedule-date">
-                        <li>
-                            25 Nov 2016
-                        </li>
-                        <li>
-                            25 Nov 2016
-                        </li>
+                    <div class="schedule-flex-container">
+                        <ul class="schedule-date">
+                            <li>
+                                25 Nov 2016
+                            </li>
+                            <li>
+                                25 Nov 2016
+                            </li>
 
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            25 Nov 2016
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            25 Nov 2016
-                        </li>
-                    </ul>
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                25 Nov 2016
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                25 Nov 2016
+                            </li>
+                        </ul>
 
-                    <ul class="schedule-text">
-                        <li>
-                            Lorem ipsum dolor sit amet
-                        </li>
-                        <li>
-                            Lorem ipsum dolor sit amet
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            Lorem ipsum dolor sit amet
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            Lorem ipsum dolor sit amet
-                        </li>
-                    </ul>
+                        <ul class="schedule-text">
+                            <li>
+                                Lorem ipsum dolor sit amet
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                
             </article>
 
         </div>
 
         <div id="mountain-two-selector">
             <article>
-                <h3 class="schedule-title">Schedule</h3>
+                <div class="schedule-parent-container">
+                    <h3 class="schedule-title">Schedule</h3>
 
-                <div class="schedule-flex-container">
-                    <ul class="schedule-date">
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            25 Nov 2016
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            25 Nov 2016
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                    </ul>
+                    <div class="schedule-flex-container">
+                        <ul class="schedule-date">
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                25 Nov 2016
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                25 Nov 2016
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                        </ul>
 
-                    <ul class="schedule-text">
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            Lorem ipsum dolor sit amet
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                        <li>
-                            Lorem ipsum dolor sit amet
-                        </li>
-                        <li>
-                            <br>
-                        </li>
-                    </ul>
-                </div>
-                
+                        <ul class="schedule-text">
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet
+                            </li>
+                            <li>
+                                <br>
+                            </li>
+                        </ul>
+                    </div>
+                </div>    
             </article>
 
         </div>
